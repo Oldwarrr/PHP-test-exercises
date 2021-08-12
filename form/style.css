@@ -1,0 +1,13 @@
+label,input{
+    display: block;
+}
+input,textarea{
+    margin-bottom: 20px;
+}
+input:not(input[type="submit"]),textarea{
+    width: 250px;
+    height: 30px;
+}
+textarea{
+    height: 100px;
+}
