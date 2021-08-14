@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form{
+    padding: 30px;
+    border: 3px solid darkblue;
+    border-radius: 10px;
+    color: darkblue;
+}
+
+
+label,input[type = "tel"], input[type = "submit"]{
+    display: block;
+}
+input,textarea{
+    margin-bottom: 20px;
+    color: darkblue;
+}
+input:not(input[type="submit"]):not(input[type = "radio"]),textarea{
+    width: 250px;
+    height: 30px;
+}
+textarea{
+    height: 100px;
+    resize: none;
+}
+.radio{
+    display: flex;
+    justify-content: space-around;
+}
+.radio label {
+    display: inline;
+    color: darkblue;
+}
+input[type = "submit"]{
+    margin: 0 auto;
+    color: darkblue;
+}
+
