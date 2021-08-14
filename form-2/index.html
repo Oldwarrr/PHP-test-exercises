@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="check.php" method="POST">
+    <form class="check" action="check.php" method="POST">
         <label for="tel">Телефон :</label>
         <input id="tel" type="tel" name="tel">
         <label for="message">Сообщение :</label>
@@ -24,7 +24,11 @@
             </div>
         </div>
         <hr>
-        <input type="submit" value="Отправить">
+        <input class="btn" type="submit" value="Отправить">
+        <form action="check.php" class="click" method="POST">
+            <button class="btn" name="click">Данные</button>
+        </form>
+
         
     </form>
 </body>
