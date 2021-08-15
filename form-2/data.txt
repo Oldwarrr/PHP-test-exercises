@@ -1,7 +1,0 @@
-tel : 7 9097079988 
-message : qwerty 
-choice : MАС OS 
-tel : 7 9097079988 
-message : qwerty 
-choice : MАС OS 
-click :  
