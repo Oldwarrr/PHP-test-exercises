@@ -1,53 +1,39 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
-.check{
-    padding: 30px;
-    border: 3px solid darkblue;
+form{
+    width: fit-content;
+    padding: 50px;
+    border: 1px solid black;
     border-radius: 10px;
-    color: darkblue;
 }
-
-
-label,input[type = "tel"], input[type = "submit"]{
+.form-group>*{
     display: block;
+    outline: none;
 }
-input,textarea{
-    margin-bottom: 20px;
-    color: darkblue;
+.form-group label{
+    margin: 10px 0;
+    font-weight: 500;
+    font-size: 18px;
 }
-input:not(input[type="submit"]):not(input[type = "radio"]),textarea{
-    width: 250px;
-    height: 30px;
+.form-group input{
+    height: 35px;
+    width: 500px;
+    margin-bottom: 25px;
+    
 }
-textarea{
-    height: 100px;
+.form-group textarea{
+    height: 120px;
+    width: 500px;
     resize: none;
 }
-.radio{
-    display: flex;
-    justify-content: space-around;
-}
-.radio label {
-    display: inline;
-    color: darkblue;
-}
-input[type = "radio"], .radio label,.btn{
+.btn-submit{
+    display: block;
+    height: 40px;
+    background-color: rgb(44, 44, 214);
+    color: #fff;
+    font-size: 20px;
+    outline: none;
+
+    margin-top: 20px;
+    border-radius: 10px;
     cursor: pointer;
 }
-.btn{
-    display: block;
-    margin: 0 auto;
-    margin-top: 15px;
-    color: darkblue;
-    width: 100px;
-    height: 30px;
-}
-hr{
-    margin: 0;
-}
-
