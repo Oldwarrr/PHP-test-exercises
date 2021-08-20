@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="check" action="check.php" method="POST">
+        <label for="tel">Телефон :</label>
+        <input id="tel" type="tel" name="tel">
+        <label for="message">Сообщение :</label>
+        <textarea id="message" name="message"></textarea>
+        <div class="radio">
+            <div class="choice-1">
+                <input name="choice" id="windows" type="radio" value="Windows">
+            <label  for="windows">Windows</label>
+            </div>
+            <div class="choice-2">
+                <input name="choice" id="mac" type="radio" value="MАС OS">
+            <label  for="mac">MAC</label>
+            </div>
+        </div>
+        <hr>
+        <input class="btn" type="submit" value="Отправить">
+        <form action="check.php" class="click" method="POST">
+            <button class="btn" name="click">Данные</button>
+        </form>
+
+        
+    </form>
+</body>
+</html>
