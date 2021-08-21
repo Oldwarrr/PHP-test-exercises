@@ -21,8 +21,16 @@ $fields = [
         'required' => 1
     ],
 
-    'comment ' => [
-        'field_name' => 'Имя',
+    'comment' => [
+        'field_name' => 'Комментарий',
         'required' => 0
-    ]
+    ],
+    'agree' => [
+        'field_name' => 'Согласие на обработку персональных данных',
+        'required' => 1
+    ],
+    'captcha' => [
+        'field_name' => 'Captcha',
+        'required' => 1
+    ],
     ];

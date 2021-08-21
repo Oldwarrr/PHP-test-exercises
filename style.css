@@ -1,5 +1,5 @@
 
-form{
+.form{
     width: fit-content;
     padding: 50px;
     border: 1px solid black;
@@ -16,24 +16,32 @@ form{
 }
 .form-group input{
     height: 35px;
-    width: 500px;
-    margin-bottom: 25px;
-    
 }
 .form-group textarea{
     height: 120px;
-    width: 500px;
     resize: none;
 }
-.btn-submit{
+.form-group input, .form-group textarea{
+    width: 500px;
+    margin-bottom: 25px;
+}
+.btn{
     display: block;
-    height: 40px;
-    background-color: rgb(44, 44, 214);
-    color: #fff;
-    font-size: 20px;
-    outline: none;
 
-    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;    
+
+    background-color: rgb(44, 44, 214);
     border-radius: 10px;
+    outline: none;
+    
+    margin-top: 20px;
+    
     cursor: pointer;
 }
