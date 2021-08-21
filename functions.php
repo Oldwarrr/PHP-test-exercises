@@ -17,11 +17,11 @@ function validate($data){
     $errors = '';
     foreach($data as $k => $v){
         if($data[$k]['required'] && empty($data[$k]['value'])){
-            $errors .= "<li>Вы не заполнили поле {$data[$k]['field_name']}</li>";
+            $errors .= "<li style='font-size:20px; width: 300px; word-wrap: break-word'>Вы не заполнили поле {$data[$k]['field_name']}</li>";
         }
     }
     if(!check_captcha($data['captcha']['value'])){
-        $errors .= "<li>Неверно заполнено поле Captcha</li>";
+        $errors .= "<li style='font-size:20px'>Неверно заполнено поле Captcha</li>";
     }
     return $errors;
 }

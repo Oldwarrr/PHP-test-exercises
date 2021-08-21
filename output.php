@@ -11,7 +11,7 @@ require_once __DIR__ . '/functions.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="button.css">
 </head>
 <body>
     <a href="index.php" class="btn">Назад к форме</a>

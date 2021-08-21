@@ -1,10 +1,16 @@
-
+body{
+    display: flex;
+}
 .form{
     width: fit-content;
-    padding: 50px;
+    padding: 20px;
+    margin-right: 30px;
     border: 1px solid black;
     border-radius: 10px;
+    order: -1;
+
 }
+
 .form-group>*{
     display: block;
     outline: none;
@@ -14,34 +20,73 @@
     font-weight: 500;
     font-size: 18px;
 }
-.form-group input{
+.form-group input:not(input[type=checkbox]){
     height: 35px;
+    
 }
 .form-group textarea{
     height: 120px;
     resize: none;
 }
-.form-group input, .form-group textarea{
-    width: 500px;
-    margin-bottom: 25px;
+.form-group input:not(input[type=checkbox]), .form-group textarea{
+    width: 300px;
+    margin-bottom: 17px;
+    background-color: transparent;
+    border: 1px solid rgb(77, 74, 74);
+    border-radius:10px;
 }
-.btn{
-    display: block;
 
-    width: 150px;
-    height: 40px;
+.form-group.checkbox{
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+.form-group label{
+    display: inline-block;    
+}
 
-    font-size: 20px;
-    line-height: 40px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;    
-
-    background-color: rgb(44, 44, 214);
-    border-radius: 10px;
-    outline: none;
-    
-    margin-top: 20px;
-    
+​
+input[type=checkbox], label[for='agree']{
     cursor: pointer;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+.fake{
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.fake::before{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('https://image.flaticon.com/icons/png/512/61/61141.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background: #000; */
+    opacity: 0;
+    transition: .2s;
+    z-index: 2;
+}
+input[type=checkbox]:checked + .fake::before {
+    opacity: 1;
+}
+.form-group .agree{
+    display: flex;
+    align-items: center;
+}
+.fake, .fake::before, .agree label{
+    display: block;
+}
+.agree label{
+    width: 250px;
+    margin-left: 20px;
 }
