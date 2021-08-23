@@ -17,6 +17,13 @@ if(!empty($_POST)){
     }
 }
 
+if(isset($_POST['action']) && $_POST['action']){
+    if(!move_uploaded_file($_FILES['file']['tmp_name'], "E:/openserver/domains/form-2d/" . $_FILES['file']['name'])){
+        echo "<li style='font-size:20px; width: 300px; word-wrap: break-word; margin-left: 20px'>Не удалось загрузить файл</li>";
+    }
+}
+
+
 
 ?>
 
@@ -33,8 +40,11 @@ if(!empty($_POST)){
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="button.css">
 </head>
+
+
+
 <body>
-    <form class="form" action="index.php" method="post">
+    <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
 
 <div class="form-group">
     <label for="name">Имя</label>
@@ -67,14 +77,20 @@ if(!empty($_POST)){
     <input name="captcha" id="captcha" type="text" >
 </div>
 
-<div class="form-group checkbox">
+<div class="form-group">
 <label for="agree" class="agree">
 <input type="checkbox" name="agree" id="agree" >
 <span class="fake"></span>
 <label for="agree">Даю согласие на обработку моих персональных данных</label>
 </div>
+<input type="hidden" name="action" value="true">
+<input class="file" type="file" name="file" accept=".png,.jpeg,.jpg">
 <button class="btn" type="submit">Отправить</button>
-<a class="btn" href="output.php" name="data" type="submit">Данные</button>
+<a class="btn" href="output.php" name="data" type="submit">Данные</a>
+
+
+
+
 
 
 
