@@ -73,11 +73,12 @@ input[type=checkbox]{
     background-repeat: no-repeat;
     /* background: #000; */
     opacity: 0;
-    transition: .2s;
+    transition: 0.4s;
     z-index: 2;
 }
 input[type=checkbox]:checked + .fake::before {
     opacity: 1;
+    transition: 0.4s;
 }
 .form-group .agree{
     display: flex;

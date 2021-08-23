@@ -1,5 +1,7 @@
+
 .btn{
     display: block;
+    position: relative;
 
     width: 150px;
     height: 40px;
@@ -10,17 +12,35 @@
     text-align: center;
     text-decoration: none;    
 
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: transparent;
+
     border: 1px solid rgb(43, 43, 43);
     outline: none;
     
     margin-top: 20px;
     
     cursor: pointer;
-    transition: 0.4s all;
+    transition: 0.6s all;
+    z-index: 1;
 }
 .btn:hover{
-    background-color: rgb(43, 43, 43);
     color: #fff;
+}
+
+.btn:hover::before{
+    transform: scaleX(1);
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    margin-left: -50%;
+    background-color: #000;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: .6s ease all;
 }
