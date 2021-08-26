@@ -1,0 +1,9 @@
+
+.img img{
+    margin: 25px 25px 25px 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+}

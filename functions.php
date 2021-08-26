@@ -57,3 +57,11 @@ function data(){
     $data = file_get_contents('data.txt');
     return $data;
 }
+
+function uploadImage($image){
+    $name = $image['name'];
+    $name = 'avatar.jpg';
+    $tmp_name = $_FILES['image']['tmp_name'];
+
+    move_uploaded_file($tmp_name, "uploads/" . $name);
+}

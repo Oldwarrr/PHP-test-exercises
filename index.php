@@ -17,12 +17,7 @@ if(!empty($_POST)){
     }
 }
 
-if(isset($_POST['action']) && $_POST['action']){
-    if(!move_uploaded_file($_FILES['file']['tmp_name'], "E:/openserver/domains/form-2d/" . $_FILES['file']['name'])){
-        echo "<li style='font-size:20px; width: 300px; word-wrap: break-word; margin-left: 20px'>Не удалось загрузить файл</li>";
-    }
-}
-
+uploadImage($_FILES['image']);   
 
 
 ?>
@@ -84,7 +79,7 @@ if(isset($_POST['action']) && $_POST['action']){
 <label for="agree">Даю согласие на обработку моих персональных данных</label>
 </div>
 <input type="hidden" name="action" value="true">
-<input class="file" type="file" name="file" accept=".png,.jpeg,.jpg">
+<input class="file" type="file" name="image" accept=".png,.jpeg,.jpg">
 <button class="btn" type="submit">Отправить</button>
 <a class="btn" href="output.php" name="data" type="submit">Данные</a>
 

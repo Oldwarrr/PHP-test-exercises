@@ -12,9 +12,11 @@ require_once __DIR__ . '/functions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="output.css">
 </head>
 <body>
     <a href="index.php" class="btn">Назад к форме</a>
+    <div class="img"><?php include('show.view.php') ?></div>
     <p><?= data() ?></p>
 </body>
 </html>
