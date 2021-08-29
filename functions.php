@@ -43,25 +43,31 @@ function write($data){
     foreach($data as $k => $v){
         if($k !== 'agree' && $k !== "captcha"){      
             $info = $v['field_name'] . " : " . $v['value'] ; 
-            $fopen = fopen('data.txt', 'a+');
+            $fopen = fopen('data/data.txt', 'a+');
             $write = fwrite($fopen, "$info \n");
             $fclose = fclose($fopen);    
         }
     }
-    $fopen = fopen('data.txt', 'a+');
+    $fopen = fopen('data/data.txt', 'a+');
     $write = fwrite($fopen, "\n");
     return $fclose = fclose($fopen);   
 }
 
 function data(){
-    $data = file_get_contents('data.txt');
+    $data = file_get_contents('data/data.txt');
     return $data;
 }
 
 function uploadImage($image){
-    $name = $image['name'];
-    $name = 'avatar.jpg';
-    $tmp_name = $_FILES['image']['tmp_name'];
+    
+        $name = $image['name'];
+        $name = 'avatar.jpg';
+        $tmp_name = $_FILES['image']['tmp_name'];
 
     move_uploaded_file($tmp_name, "uploads/" . $name);
+
 }
+
+// echo "<pre>";
+// echo print_r($_FILES);
+// echo "</pre>";
