@@ -17,7 +17,7 @@ function validate($data){
     $errors = '';
     foreach($data as $k => $v){
         if($data[$k]['required'] && empty($data[$k]['value'])){
-            $errors .= "<li style='font-size:20px; width: 300px; word-wrap: break-word'>Вы не заполнили поле {$data[$k]['field_name']}</li>";
+            $errors .= "<li style='font-size:20px; word-wrap: break-word'>Вы не заполнили поле {$data[$k]['field_name']}</li>";
         }
     }
     if(!check_captcha($data['captcha']['value'])){
@@ -40,22 +40,35 @@ function check_captcha($res){
 
 
 function write($data){
+    $dataPack = "";
     foreach($data as $k => $v){
         if($k !== 'agree' && $k !== "captcha"){      
-            $info = $v['field_name'] . " : " . $v['value'] ; 
-            $fopen = fopen('data/data.txt', 'a+');
-            $write = fwrite($fopen, "$info \n");
-            $fclose = fclose($fopen);    
+            $dataItem = $v['field_name'] . " : " . $v['value'] . " \n" ;
+            
+            
+               
+            $dataPack .= $dataItem; 
+            
+            
         }
+        
     }
+    
+    $dataPack = serialize($dataPack);
+    $fopen = fopen('data/data.txt', 'a+');
+            $write = fwrite($fopen, "$dataPack \n");
+            $fclose = fclose($fopen); 
+
     $fopen = fopen('data/data.txt', 'a+');
     $write = fwrite($fopen, "\n");
     return $fclose = fclose($fopen);   
+
+    
 }
 
 function data(){
-    $data = file_get_contents('data/data.txt');
-    return $data;
+    $output = file_get_contents('data/data.txt'); 
+    return $output;
 }
 
 function uploadImage($image){
@@ -68,6 +81,13 @@ function uploadImage($image){
 
 }
 
-// echo "<pre>";
-// echo print_r($_FILES);
-// echo "</pre>";
+function uploadFileCsv($csv){
+        
+        $nameFile = $csv['name'];
+        $nameFile = 'data.csv';
+
+        $tmp_name = $_FILES['csv']['tmp_name'];
+        move_uploaded_file($tmp_name, "uploads/" . $nameFile);
+        
+  
+}

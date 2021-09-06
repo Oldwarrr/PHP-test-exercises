@@ -1,8 +1,15 @@
 body{
     display: flex;
+    align-items: center;
 }
 pre{
+    display: block;
     margin: 0;
+    
+}
+pre>li,li{
+    
+    color: rgba(60, 60, 192, 0.856);
 }
 p{
     margin: 0;
@@ -180,3 +187,22 @@ input[type=radio]:checked + .fake-radio::before{
     filter: drop-shadow(0 0 0.75rem rgba(0, 0, 26, 0.856));
     transform: scale(1.15); 
 } 
+
+.img img{
+    margin: 25px 25px 25px 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+}
+
+
+.get-and-out{
+    align-self: baseline;
+    margin-left: 30px;
+}
+label[for='file']{
+    display: block;
+    margin-bottom: 20px;
+}

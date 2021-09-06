@@ -1,8 +1,11 @@
 <?php
 
 session_start();
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
+
+
+//REQUIRE FUNCTIONS
 require_once $_SERVER['DOCUMENT_ROOT'] . '/functions.php';
+
 
 
 $fields = [
@@ -43,28 +46,18 @@ $fields = [
     ],
     ];
 
+
+
+
+    // REQUIRE HEADER
+require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 ?>
 
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/button.css">
-    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOrKc92Vw36-GJyybhzyB9O3O6fV9FAJux1w&usqp=CAU">
-</head>
-
-
 
 <body>
-
-
 
 <p class="announce">
 <?
@@ -72,7 +65,7 @@ if(!empty($_POST)){
     // debug($_POST);
 
     uploadImage($_FILES['image']);  
-
+    
     $fields = load($fields);
     // debug($fields);
     if( $errors = validate($fields)){
@@ -83,6 +76,15 @@ if(!empty($_POST)){
     }
 }
 
+
+if(isset($_FILES['csv'])){
+    uploadFileCsv($_FILES['csv']);
+}
+        
+    
+
+
+
 ?>
 
 
@@ -91,7 +93,7 @@ if(!empty($_POST)){
 
 
 
-    <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+    <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data" name="form">
 
 <div class="form_main">
 <div class="form-group">
@@ -180,6 +182,16 @@ if(!empty($_POST)){
 
 </form>
 
+
+<div class="get-and-out">
+    <form method="POST" enctype="multipart/form-data">
+    <label for="file">Выберите загружаемый CSV файл</label>
+        <input id="file" type="file" accept=".csv" name="csv">
+        <button class="btn" type="submit">Загрузить</button>
+    </form>
+    
+    <? require('get-and-out.php') ?>
+</div>
 
 
 </body>
