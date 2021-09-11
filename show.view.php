@@ -1,1 +1,1 @@
-<img src="/uploads/avatar.jpg" alt="">
+<img src="/uploads/img.jpg" alt="">

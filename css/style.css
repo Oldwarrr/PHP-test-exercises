@@ -2,10 +2,14 @@ body{
     display: flex;
     align-items: center;
 }
+.flex-item{
+    display: flex;
+    flex-direction: column-reverse;
+}
 pre{
     display: block;
     margin: 0;
-    
+
 }
 pre>li,li{
     
@@ -14,6 +18,7 @@ pre>li,li{
 p{
     margin: 0;
     padding: 0;
+
 }
 label, .choice-os{
     -moz-user-select: none;
@@ -31,7 +36,7 @@ label, .choice-os{
     border: 1px solid rgba(60, 60, 192, 0.856);
     border-radius: 10px;
     background: linear-gradient( rgba(60, 60, 192, 0.856), #fff);
-    order: -1;
+    
 
 }
 
@@ -190,11 +195,11 @@ input[type=radio]:checked + .fake-radio::before{
 
 .img img{
     margin: 25px 25px 25px 0;
-    width: 150px;
+    /* width: 150px;
     height: 150px;
-    object-fit: cover;
+    object-fit: cover; */
     border-radius: 50%;
-    float: left;
+    /* float: left; */
 }
 
 

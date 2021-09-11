@@ -59,12 +59,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 
 <body>
 
-<p class="announce">
+<div class="flex-item">
+<!-- <p class="announce"> -->
 <?
+
 if(!empty($_POST)){
     // debug($_POST);
 
-    uploadImage($_FILES['image']);  
+    // uploadImage($_FILES['image']);  
+    upload($_FILES['image'],150,150);
     
     $fields = load($fields);
     // debug($fields);
@@ -81,14 +84,14 @@ if(isset($_FILES['csv'])){
     uploadFileCsv($_FILES['csv']);
 }
         
-    
+
 
 
 
 ?>
 
 
-</p>
+<!-- </p> -->
 
 
 
@@ -181,6 +184,7 @@ if(isset($_FILES['csv'])){
 
 
 </form>
+</div>
 
 
 <div class="get-and-out">

@@ -1,5 +1,11 @@
 <?php
 
+function pre($array){
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
+}
+
 function debug($data){
     echo '<pre>' . print_r($data, 1) . '</pre>';
 }
@@ -71,11 +77,13 @@ function data(){
     return $output;
 }
 
+
 function uploadImage($image){
     
         $name = $image['name'];
         $name = 'avatar.jpg';
         $tmp_name = $_FILES['image']['tmp_name'];
+  
 
     move_uploaded_file($tmp_name, "uploads/" . $name);
 
@@ -90,4 +98,67 @@ function uploadFileCsv($csv){
         move_uploaded_file($tmp_name, "uploads/" . $nameFile);
         
   
+}
+
+function upload($file,$w,$h){
+    // $fileName = $file['name'];
+    // $fileName = 'img.jpg';
+    $tmp_name = $file['tmp_name'];
+  
+
+        
+
+    
+    if(!empty($_FILES['image']['tmp_name'])){
+
+        $infoImage = getimagesize($tmp_name);
+   
+    
+    // pre($infoImage);
+    $width  = $infoImage[0];
+    $height = $infoImage[1];
+    $type = $infoImage[2];
+
+    
+    
+
+
+
+
+
+    switch($type){
+        case 1:
+            $img = imagecreatefromgif($tmp_name);
+            break;
+        case 2:
+            $img = imagecreatefromjpeg($tmp_name);
+            break;
+        case 3:
+            $img = imagecreatefrompng($tmp_name);
+            break;
+    }
+    
+    
+    $w; //100    width 400
+    $h; //100    height 800
+    
+    $tmp = imageCreateTrueColor($w, $h);
+
+    $tw = ceil($h / ($height / $width)); //    = 50
+    $th = ceil($w / ($width / $height)); //    = 200
+    // if ($tw < $w) {
+	imageCopyResampled($tmp, $img, 0, 0, 0, 0, $tw, $h, $width, $height);        
+    // } else {
+	// imageCopyResampled($tmp, $img, 0, ceil(($h - $th) / 2), 0, 0, $w, $th, $width, $height);    
+    // }            
+ 
+    $img = $tmp;
+
+    ob_start();
+    imagejpeg($img);
+    $data = ob_get_clean();
+    file_put_contents('uploads/img.jpg',$data);
+
+    // move_uploaded_file($tmp_name, $img);
+   }
 }
