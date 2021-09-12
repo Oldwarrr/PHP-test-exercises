@@ -194,12 +194,8 @@ input[type=radio]:checked + .fake-radio::before{
 } 
 
 .img img{
-    margin: 25px 25px 25px 0;
-    /* width: 150px;
-    height: 150px;
-    object-fit: cover; */
+    margin: 25px 25px 25px 0;  
     border-radius: 50%;
-    /* float: left; */
 }
 
 

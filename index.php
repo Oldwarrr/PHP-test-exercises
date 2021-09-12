@@ -196,7 +196,7 @@ if(isset($_FILES['csv'])){
     
     <? require('get-and-out.php') ?>
 </div>
-
+<!-- <img src="uploads/img.jpg" alt=""> -->
 
 </body>
 </html>

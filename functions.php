@@ -109,56 +109,52 @@ function upload($file,$w,$h){
         
 
     
-    if(!empty($_FILES['image']['tmp_name'])){
+    if(!empty($_FILES['image']['tmp_name']) ){
 
-        $infoImage = getimagesize($tmp_name);
-   
-    
-    // pre($infoImage);
-    $width  = $infoImage[0];
-    $height = $infoImage[1];
-    $type = $infoImage[2];
+        if($_FILES['image']['type'] == 'image/gif' || $_FILES['image']['type'] == 'image/jpeg' || $_FILES['image']['type'] == 'image/png'){
+            
+            $infoImage = getimagesize($tmp_name);
+                   
+            $width  = $infoImage[0];
+            $height = $infoImage[1];
+            $type = $infoImage[2];
+                    
+        
+            
+                
+            
+                $w; //100    width 400
+                $h; //100    height 800
+                
+                
+            if($type == 1 || $type == 2 || $type == 3){
+                if($type == 1){
+                    $img = imagecreatefromgif($tmp_name);
+                }elseif($type == 2){
+                        $img = imagecreatefromjpeg($tmp_name);
+                }elseif($type == 3){
+                    $img = imagecreatefrompng($tmp_name);
+                }
+                $tmp = imageCreateTrueColor($w, $h);
 
-    
-    
+                $tw = ceil($h / ($height / $width)); //    = 50
+                $th = ceil($w / ($width / $height)); //    = 200
+                // if ($tw < $w) {
+                imageCopyResampled($tmp, $img, 0, 0, 0, 0, $tw, $h, $width, $height);        
+                // } else {
+                // imageCopyResampled($tmp, $img, 0, ceil(($h - $th) / 2), 0, 0, $w, $th, $width, $height);    
+                // }            
+                
+                $img = $tmp;
 
-
-
-
-
-    switch($type){
-        case 1:
-            $img = imagecreatefromgif($tmp_name);
-            break;
-        case 2:
-            $img = imagecreatefromjpeg($tmp_name);
-            break;
-        case 3:
-            $img = imagecreatefrompng($tmp_name);
-            break;
+                ob_start();
+                imagejpeg($img);
+                $data = ob_get_clean();
+                file_put_contents('uploads/img.jpg',$data);
+                
+            }
+        }else {
+            echo "<li style='font-size:20px; width: 300px; word-wrap: break-word'>Неверный формат</li>";   
+        }
     }
-    
-    
-    $w; //100    width 400
-    $h; //100    height 800
-    
-    $tmp = imageCreateTrueColor($w, $h);
-
-    $tw = ceil($h / ($height / $width)); //    = 50
-    $th = ceil($w / ($width / $height)); //    = 200
-    // if ($tw < $w) {
-	imageCopyResampled($tmp, $img, 0, 0, 0, 0, $tw, $h, $width, $height);        
-    // } else {
-	// imageCopyResampled($tmp, $img, 0, ceil(($h - $th) / 2), 0, 0, $w, $th, $width, $height);    
-    // }            
- 
-    $img = $tmp;
-
-    ob_start();
-    imagejpeg($img);
-    $data = ob_get_clean();
-    file_put_contents('uploads/img.jpg',$data);
-
-    // move_uploaded_file($tmp_name, $img);
-   }
 }
